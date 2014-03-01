@@ -1,0 +1,18 @@
+﻿@model MongoPlaces.Models.UserModels
+
+@{
+    ViewBag.Title = "UserInfo";
+}
+
+<h2>@Model.email</h2>
+
+<p>Favourite objects:
+    <ul>
+        @foreach (var objectItem in Model.listOfFavouriteObjects)
+        {
+            <li>@Html.ActionLink(objectItem.ToString(), "GetType", "User", new { id = objectItem }, null) &nbsp;
+                @Html.ActionLink("Remove", "RemovePlace", "User", new { objectId = objectItem }, null)
+            </li>
+        }
+    </ul>
+</p>

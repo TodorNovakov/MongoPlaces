@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "Places";
+}
+
+<h2>Places</h2>
+<ul>
+@for(int i = 0; i < 10; i++)
+{
+    <li>@MongoDB.Bson.ObjectId.GenerateNewId()</li>
+}
+</ul>

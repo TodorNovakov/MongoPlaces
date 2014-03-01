@@ -1,0 +1,59 @@
+﻿@model IEnumerable<MongoDBProjectLibrary.Restaurant>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Restaurants</h2>
+<table>
+    <tr>
+         <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PriceCategory)
+                     
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Likes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rating)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+         <td>
+             <p>
+            @Html.DisplayFor(modelItem => item.Name)
+                 </p>
+
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PriceCategory)
+
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Likes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rating)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) 
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) 
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+ <div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+ <div>
+    @Html.ActionLink("Add Restaurant", "Create")
+</div>

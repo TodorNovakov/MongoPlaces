@@ -1,0 +1,94 @@
+﻿@model MongoDBProjectLibrary.Hostel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Hostel</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        @Html.HiddenFor(model => model.Id)
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CoordinatesPlace)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CoordinatesPlace)
+            @Html.ValidationMessageFor(model => model.CoordinatesPlace)
+        </div>
+
+         <div class="editor-label">
+            @Html.LabelFor(model => model.Capacity)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Capacity)
+            @Html.ValidationMessageFor(model => model.Capacity)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Likes)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Likes)
+            @Html.ValidationMessageFor(model => model.Likes)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Rating)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Rating)
+            @Html.ValidationMessageFor(model => model.Rating)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.WorkingTime)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.WorkingTime)
+            @Html.ValidationMessageFor(model => model.WorkingTime)
+        </div>
+            <div class="editor-label">
+            @Html.LabelFor(model => model.AdditionalInformation)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AdditionalInformation)
+            @Html.ValidationMessageFor(model => model.AdditionalInformation)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

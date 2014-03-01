@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "AdditionalInformationListing";
+}
+
+<h2>AdditionalInformationListing</h2>
+@helper AdditionalInformationListing(List<string> info)
+{
+    @foreach(var elem in info)
+    {
+        @Html.Display(elem);
+    }
+}

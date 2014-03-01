@@ -1,0 +1,23 @@
+﻿@model List<MongoPlaces.Models.UserModels>
+
+@{
+    ViewBag.Title = "Users";
+}
+
+<script type="text/javascript">
+    var pesho = @(Model.ToString())
+    alert(pesho);
+</script>
+
+<h2>Users</h2>
+<table>
+    @foreach (var user in Model)
+    {
+        <tr>
+        <td>@Html.ActionLink(user.id.ToString(), "UserInfo", "User", new { userEmail = user.email }, null)</td>
+        <td>@user.email</td>
+        <td>@user.password</td>
+            
+        </tr>
+    }
+</table>

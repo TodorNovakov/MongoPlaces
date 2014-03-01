@@ -1,0 +1,100 @@
+﻿@model MongoDBProjectLibrary.Restaurant
+
+@{
+    ViewBag.Title = "Add Restaurant";
+}
+
+<h2>Add Restaurant</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Restaurant</legend>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+           <div class="editor-label">
+            @Html.LabelFor(model => model.CoordinatesPlace)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CoordinatesPlace)
+            @Html.ValidationMessageFor(model => model.CoordinatesPlace)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SeatingCapacity)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SeatingCapacity)
+            @Html.ValidationMessageFor(model => model.SeatingCapacity)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PriceCategory)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PriceCategory)
+            @Html.ValidationMessageFor(model => model.PriceCategory)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Likes)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Likes)
+            @Html.ValidationMessageFor(model => model.Likes)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Rating)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Rating)
+            @Html.ValidationMessageFor(model => model.Rating)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.WorkingTime)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.WorkingTime)
+            @Html.ValidationMessageFor(model => model.WorkingTime)
+        </div>
+         <div class="editor-label">
+            @Html.LabelFor(model => model.AdditionalInformation)
+        </div>
+        <div class="editor-field">
+            @for(int i=0;i<3;i++)
+            {
+               @Html.EditorFor(model => model.AdditionalInformation[i])
+               @Html.ValidationMessageFor(model => model.AdditionalInformation[i])
+            }
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
